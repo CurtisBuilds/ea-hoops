@@ -11,11 +11,6 @@ export default function SignInPage() {
     background: "var(--ea-sky-soft)",
   };
   const logo: React.CSSProperties = {
-    fontFamily: "var(--font-display)",
-    fontSize: "var(--fs-display-sm)",
-    color: "var(--ea-teal-900)",
-    textTransform: "uppercase",
-    letterSpacing: "var(--ls-display)",
     marginBottom: "var(--space-2)",
     textAlign: "center",
   };
@@ -35,7 +30,8 @@ export default function SignInPage() {
 
   return (
     <div style={page}>
-      <div style={logo}>EA Hoops</div>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src="/bball-logo.svg" alt="Elevation Athletics" style={{ height: 90, width: "auto", marginBottom: "var(--space-2)" }} />
       <div style={sub}>Jr Basketball Coach Curriculum</div>
       <div style={card}>
         <SignIn />
