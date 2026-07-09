@@ -71,8 +71,9 @@ export default function SignIn() {
           <label style={label}>Email address</label>
           <input style={input} type="email" required autoFocus
             placeholder="you@example.com" value={email}
-            onChange={(e) => setEmail(e.target.value)} />
-          <button style={btn} type="submit" disabled={pending || !email}>
+            onChange={(e) => setEmail(e.target.value)}
+            onBlur={(e) => setEmail(e.target.value)} />
+          <button style={btn} type="submit" disabled={pending}>
             {pending ? "Sending…" : "Send sign-in code"}
           </button>
           {error && <p style={{ color: "var(--ea-danger)", fontSize: 14, marginTop: "var(--space-3)", textAlign: "center" }}>{error}</p>}
