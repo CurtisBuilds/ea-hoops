@@ -8,19 +8,19 @@ export default function SignInPage() {
     alignItems: "center",
     justifyContent: "center",
     padding: "var(--space-5)",
-    background: "var(--ea-teal-900)",
+    background: "var(--ea-sky-soft)",
   };
   const logo: React.CSSProperties = {
     fontFamily: "var(--font-display)",
     fontSize: "var(--fs-display-sm)",
-    color: "var(--ea-white)",
+    color: "var(--ea-teal-900)",
     textTransform: "uppercase",
     letterSpacing: "var(--ls-display)",
     marginBottom: "var(--space-2)",
     textAlign: "center",
   };
   const sub: React.CSSProperties = {
-    color: "var(--ea-orange)",
+    color: "var(--ea-teal-700)",
     fontSize: "var(--fs-label)",
     fontFamily: "var(--font-body)",
     textTransform: "uppercase",
