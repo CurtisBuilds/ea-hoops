@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getLevel, getSession } from "@/lib/curriculum";
+import { getLevel, getSession, DRILL_VIDEOS } from "@/lib/curriculum";
 import Link from "next/link";
 
 const levelColors: Record<string, string> = {
@@ -171,28 +171,51 @@ export default function SessionPage({ params }: { params: { level: string; sessi
 
               {/* Drills */}
               <div style={{ padding: "var(--space-3) var(--space-5)" }}>
-                {section.drills.map((drill, j) => (
-                  <div key={j} style={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    gap: "var(--space-3)",
-                    padding: "var(--space-2) 0",
-                    borderBottom: j < section.drills.length - 1 ? "1px solid var(--ea-line)" : "none",
-                  }}>
-                    <div style={{
-                      width: 24, height: 24, borderRadius: "50%",
-                      background: `${accent}22`,
-                      color: accent, fontSize: 12, fontWeight: "var(--fw-bold)",
-                      display: "flex", alignItems: "center", justifyContent: "center",
-                      flexShrink: 0, marginTop: 1,
+                {section.drills.map((drill, j) => {
+                  const drillName = cleanDrillName(drill);
+                  const videoUrl = DRILL_VIDEOS[drillName];
+                  return (
+                    <div key={j} style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "var(--space-3)",
+                      padding: "var(--space-2) 0",
+                      borderBottom: j < section.drills.length - 1 ? "1px solid var(--ea-line)" : "none",
                     }}>
-                      {j + 1}
+                      <div style={{
+                        width: 24, height: 24, borderRadius: "50%",
+                        background: `${accent}22`,
+                        color: accent, fontSize: 12, fontWeight: "var(--fw-bold)",
+                        display: "flex", alignItems: "center", justifyContent: "center",
+                        flexShrink: 0,
+                      }}>
+                        {j + 1}
+                      </div>
+                      <span style={{ fontSize: "var(--fs-body-sm)", color: "var(--ea-ink)", lineHeight: 1.5, flex: 1 }}>
+                        {drillName}
+                      </span>
+                      {videoUrl && (
+                        <a
+                          href={videoUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          title="Watch on YouTube"
+                          style={{
+                            display: "inline-flex", alignItems: "center", gap: 4,
+                            padding: "4px 10px", borderRadius: 6,
+                            background: "#FF0000", color: "#fff",
+                            fontSize: 11, fontWeight: "var(--fw-bold)",
+                            textDecoration: "none", flexShrink: 0,
+                            fontFamily: "var(--font-body)",
+                            letterSpacing: "0.03em",
+                          }}
+                        >
+                          ▶ YouTube
+                        </a>
+                      )}
                     </div>
-                    <span style={{ fontSize: "var(--fs-body-sm)", color: "var(--ea-ink)", lineHeight: 1.5 }}>
-                      {cleanDrillName(drill)}
-                    </span>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           ))}
