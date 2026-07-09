@@ -20,7 +20,7 @@ export default function CoachNav({ name, isAdmin, currentLevel, currentSession }
 
   const nav: React.CSSProperties = {
     position: "sticky", top: 0, zIndex: 100,
-    background: "var(--ea-teal-900)",
+    background: "var(--ea-sky-soft)",
     display: "flex", alignItems: "center",
     padding: "0 var(--space-5)",
     height: "var(--nav-height)",
@@ -28,23 +28,21 @@ export default function CoachNav({ name, isAdmin, currentLevel, currentSession }
     borderBottom: "2px solid var(--ea-orange-hot)",
   };
   const brand: React.CSSProperties = {
-    fontFamily: "var(--font-display)", fontSize: 20,
-    color: "var(--ea-white)", textTransform: "uppercase",
-    letterSpacing: "0.08em", textDecoration: "none",
-    display: "flex", alignItems: "center", gap: 8,
+    textDecoration: "none",
+    display: "flex", alignItems: "center",
   };
   const crumb: React.CSSProperties = {
-    color: "var(--ea-orange)", fontSize: "var(--fs-label)",
+    color: "var(--ea-teal-700)", fontSize: "var(--fs-label)",
     fontFamily: "var(--font-body)", letterSpacing: "0.04em",
   };
   const spacer: React.CSSProperties = { flex: 1 };
   const nameStyle: React.CSSProperties = {
-    color: "var(--ea-sky-light)", fontSize: "var(--fs-label)",
+    color: "var(--ea-ink)", fontSize: "var(--fs-label)",
     fontFamily: "var(--font-body)",
   };
   const signOutBtn: React.CSSProperties = {
     background: "none", border: "1px solid var(--ea-teal-700)",
-    color: "var(--ea-sky-light)", borderRadius: "var(--radius-button)",
+    color: "var(--ea-teal-800)", borderRadius: "var(--radius-button)",
     padding: "4px 12px", fontSize: 13, cursor: "pointer",
     fontFamily: "var(--font-body)",
   };
@@ -52,7 +50,8 @@ export default function CoachNav({ name, isAdmin, currentLevel, currentSession }
   return (
     <nav style={nav}>
       <a href="/coach" style={brand}>
-        🏀 <span className="coach-nav-brand-text">EA Hoops</span>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/bball-logo.svg" alt="Elevation Athletics" style={{ height: 36, width: "auto" }} />
       </a>
       {currentLevel && (
         <span style={crumb}>
